@@ -1,17 +1,35 @@
 <mat-card class="user-detail-header">
+
+    <button mat-icon-button class="pin-right-upper-corner" [matMenuTriggerFor]="usermenu">
+        <mat-icon>more_vert</mat-icon>
+    </button>
+
+    <mat-menu #usermenu="matMenu">
+        <button mat-menu-item (click)="editUserDetail()">Edit</button>
+
+    </mat-menu>
+
     <img src="assets/img/bird-player.png">
     <div class="user-details">
-        <h2>Mustermann</h2>
+        <h2>{{ user.firstName }} {{ user.lastName }}</h2>
 
-        email@email.de
+        {{ user.email }}
     </div>
 </mat-card>
 
 
 <mat-card class="mt-32 full-width">
+    <button mat-icon-button class="pin-right-upper-corner" [matMenuTriggerFor]="Addressmenu">
+        <mat-icon>more_vert</mat-icon>
+    </button>
+
+    <mat-menu #Addressmenu="matMenu">
+        <button mat-menu-item (click)="editMenu()">Edit</button>
+
+    </mat-menu>
 
     <mat-card-title>Address</mat-card-title>
     <mat-card-content>
-        Musterstr. 23 <br> 12345 Musterstadt
+        {{ user.street }} <br> {{ user.zipCode }} {{ user.city }}
     </mat-card-content>
 </mat-card>
